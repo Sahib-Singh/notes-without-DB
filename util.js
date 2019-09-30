@@ -37,7 +37,6 @@ const showAll = function () {
         const dataJson = JSON.parse(dataBuffer.toString())
         result = dataJson.map(({ title }) => ({ title }));
         console.log(result);
-
     } catch (error) {
         console.log("List is empty");
     }
@@ -69,7 +68,11 @@ const showNote = function (arg) {
     const displayNotes = notesExist.find(res => {
         return res.title === arg.title
     })
-    console.log(displayNotes);
+    if (displayNotes) {
+        console.log(displayNotes);
+    } else {
+        console.log("Note not found!");
+    }
 }
 
 module.exports = {
